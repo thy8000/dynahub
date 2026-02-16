@@ -7,6 +7,13 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     manifest: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
     rollupOptions: {
       input: {
         main: './src/main.js',
@@ -21,12 +28,6 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         }
-      }
-    },
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true
       }
     }
   },
