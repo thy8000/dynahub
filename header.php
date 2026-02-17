@@ -1,10 +1,9 @@
 <?php
 
-/**
- * Header template
- *
- * @package Dynahub
- */
+if (!defined('ABSPATH')) {
+  exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -19,9 +18,9 @@
 <body <?php body_class('bg-gray-50 text-gray-900'); ?>>
   <?php wp_body_open(); ?>
 
-  <div id="page" class="site">
+  <main id="main" class="site-main">
     <a class="skip-link screen-reader-text sr-only" href="#main">
       <?php esc_html_e('Pular para o conteúdo', 'dynahub'); ?>
     </a>
 
-    <?php get_template_part('components/header'); ?>
+    <?php get_template_part('components/header/_index'); ?>
