@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 ?>
 
-<div class="flex items-center space-x-4">
+<div class="flex items-center justify-center space-x-4">
     <a href="#" class="text-white hover:text-gray-300 transition-colors" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
         <span class="text-lg font-semibold">f</span>
     </a>

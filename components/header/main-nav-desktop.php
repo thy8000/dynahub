@@ -6,15 +6,9 @@ if (!defined('ABSPATH')) {
 
 ?>
 
-<div class="bg-stone-100">
+<div class="bg-blue-500 lg:block hidden">
     <div class="container">
-        <nav class="flex items-center justify-between gap-20 py-4">
-            <div class="shrink-0">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center space-x-2">
-                    <h1 class="text-3xl font-bold text-black">DynaHub</h1>
-                </a>
-            </div>
-
+        <nav class="flex items-center justify-center gap-20 py-4">
             <div class="hidden md:flex justify-center">
                 <?php
 
@@ -28,12 +22,6 @@ if (!defined('ABSPATH')) {
 
                 ?>
             </div>
-
-            <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-200 transition-colors" aria-label="Abrir menu" aria-expanded="false">
-                <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
         </nav>
     </div>
 </div>
