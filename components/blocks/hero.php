@@ -42,11 +42,11 @@ $reading_time = '20 MINS';
 
     <!-- Imagem de fundo -->
     <?php if ($featured_image) : ?>
-        <div class="absolute inset-0 w-full h-full">
+        <div class="absolute inset-0 !w-full !h-full">
             <img
                 src="<?php echo esc_url($featured_image); ?>"
                 alt="<?php echo esc_attr($featured_image_alt); ?>"
-                class="w-full h-full object-cover" />
+                class="!w-full !h-full !object-cover" />
         </div>
     <?php endif; ?>
 
@@ -66,7 +66,7 @@ $reading_time = '20 MINS';
             <?php endif; ?>
 
             <!-- Título -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 class="!text-4xl md:!text-5xl lg:!text-6xl font-bold !text-white mb-6 leading-tight">
                 <?php echo esc_html($post_title); ?>
             </h1>
 

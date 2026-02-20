@@ -23,6 +23,7 @@ class GlobalHooks
     {
         add_action('after_setup_theme', [$this, 'setup']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+        add_action('enqueue_block_editor_assets', [$this, 'enqueue_assets']);
         add_action('wp_footer', [$this, 'remove_module_filter'], 999);
     }
 
