@@ -16,4 +16,4 @@ if (file_exists($composer_autoload)) {
 }
 
 new \Dynahub\Global\GlobalHooks();
-new \Dynahub\CustomBlocks\Register();
+new \Dynahub\Blocks\Register();
