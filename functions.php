@@ -44,32 +44,34 @@ function dynahub_enqueue_assets()
             array(),
             $theme_version
         );
-    } else {
-        $manifest_path = get_template_directory() . '/dist/manifest.json';
 
-        if (file_exists($manifest_path)) {
-            $manifest = json_decode(file_get_contents($manifest_path), true);
+        return;
+    }
 
-            if (isset($manifest['src/input.css'])) {
-                wp_enqueue_style(
-                    'dynahub-style',
-                    get_template_directory_uri() . '/dist/' . $manifest['src/input.css']['file'],
-                    array(),
-                    $theme_version
-                );
-            }
+    $manifest_path = get_template_directory() . '/dist/manifest.json';
 
-            if (isset($manifest['src/main.js'])) {
-                wp_enqueue_script(
-                    'dynahub-main',
-                    get_template_directory_uri() . '/dist/' . $manifest['src/main.js']['file'],
-                    array(),
-                    $theme_version,
-                    true
-                );
+    if (file_exists($manifest_path)) {
+        $manifest = json_decode(file_get_contents($manifest_path), true);
 
-                add_filter('script_loader_tag', 'dynahub_add_module_type', 10, 3);
-            }
+        if (isset($manifest['src/input.css'])) {
+            wp_enqueue_style(
+                'dynahub-style',
+                get_template_directory_uri() . '/dist/' . $manifest['src/input.css']['file'],
+                array(),
+                $theme_version
+            );
+        }
+
+        if (isset($manifest['src/main.js'])) {
+            wp_enqueue_script(
+                'dynahub-main',
+                get_template_directory_uri() . '/dist/' . $manifest['src/main.js']['file'],
+                array(),
+                $theme_version,
+                true
+            );
+
+            add_filter('script_loader_tag', 'dynahub_add_module_type', 10, 3);
         }
     }
 }
@@ -79,6 +81,7 @@ function dynahub_add_module_type($tag, $handle, $src)
     if ('dynahub-main' === $handle) {
         $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
     }
+
     return $tag;
 }
 

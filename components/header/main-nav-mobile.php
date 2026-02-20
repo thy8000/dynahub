@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     <div class="flex flex-col gap-6 h-full py-5">
         <div class="px-6 py-8 border-b border-neutral-500">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="flex flex-col items-center space-y-2 mobile-nav-logo">
-                <h1 class="text-3xl font-bold text-white">DynaHub</h1>
+                <h1 class="logo">DynaHub</h1>
             </a>
         </div>
 

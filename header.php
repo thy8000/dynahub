@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-gray-50 text-gray-900'); ?>>
+<body <?php body_class('bg-gray-50 text-gray-900 font-primary'); ?>>
   <?php wp_body_open(); ?>
 
   <main id="main" class="site-main">

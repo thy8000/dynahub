@@ -1,3 +1,4 @@
+@import "./fonts/fonts.css";
 @import "tailwindcss";
 
 @theme {
@@ -9,8 +10,9 @@
   --color-neutral-500: #8199B7;
 
 
-  --font-primary: system-ui, -apple-system, sans-serif;
-  --font-secondary: Georgia, serif;
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Merriweather', serif;
+  --font-logo: 'Playfair Display', serif;
 
   --spacing-section: 4rem;
   --spacing-container: 1.5rem;
@@ -28,6 +30,7 @@
 
   body {
     @apply antialiased;
+    font-family: var(--font-primary);
   }
 
   .container {
@@ -36,6 +39,10 @@
 }
 
 @layer components {
+  .logo {
+    @apply text-3xl font-bold text-stone-100 font-logo;
+  }
+
   @import "./tailwind/components/buttons.css";
   @import "./tailwind/components/nav-menu.css";
 }
