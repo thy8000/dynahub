@@ -8,7 +8,7 @@ get_header();
 
 ?>
 
-<div class="container-custom py-12">
+<div class="container-custom">
     <?php the_content(); ?>
 </div>
 
