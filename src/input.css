@@ -8,10 +8,11 @@
   --color-blue-600: #12253E;
 
   --color-neutral-500: #8199B7;
+  --color-custom-neutral-100: #BACCE1;
 
 
-  --font-primary: 'Roboto', sans-serif;
-  --font-secondary: 'Merriweather', serif;
+  --font-primary: 'Manrope', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
   --font-logo: 'Playfair Display', serif;
 
   --spacing-section: 4rem;
