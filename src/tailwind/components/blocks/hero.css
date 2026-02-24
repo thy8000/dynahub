@@ -1,0 +1,3 @@
+.dynahub-block-hero ul {
+    @apply !list-none !p-0 !m-0;
+}

@@ -16,16 +16,24 @@ if (empty($hero_posts)) {
 
 $posts_count = count($hero_posts);
 
-if ($posts_count === 1) {
-    get_template_part('components/blocks/hero/hero-single-post', null, [
-        'post' => $hero_posts[0] ?? null,
-    ]);
-} else if ($posts_count === 2) {
-    get_template_part('components/blocks/hero/hero-double-posts', null, [
-        'posts' => $hero_posts,
-    ]);
-} else {
-    get_template_part('components/blocks/hero/hero-multiple-posts', null, [
-        'posts' => $hero_posts,
-    ]);
-}
+?>
+
+<div class="dynahub-block-hero">
+    <?php
+
+    if ($posts_count === 1) {
+        get_template_part('components/blocks/hero/hero-single-post', null, [
+            'post' => $hero_posts[0] ?? null,
+        ]);
+    } else if ($posts_count === 2) {
+        get_template_part('components/blocks/hero/hero-double-posts', null, [
+            'posts' => $hero_posts,
+        ]);
+    } else {
+        get_template_part('components/blocks/hero/hero-multiple-posts', null, [
+            'posts' => $hero_posts,
+        ]);
+    }
+
+    ?>
+</div>
