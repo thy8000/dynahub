@@ -8,7 +8,7 @@ get_header();
 
 ?>
 
-<div class="container-custom">
+<div class="flex flex-col gap-10">
     <?php the_content(); ?>
 </div>
 
