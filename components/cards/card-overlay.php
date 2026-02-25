@@ -27,9 +27,11 @@ $category_name = strtoupper($Post->get_first_category_name());
 
 $reading_time = $Post->get_reading_time();
 
+$link_classes = $args['link_classes'] ?? '';
+
 ?>
 
-<a href="<?php echo esc_url($post_url); ?>" class="hero-block relative block w-full !h-[600px] overflow-hidden group">
+<a href="<?php echo esc_url($post_url); ?>" class="card-overlay hero-block relative block w-full overflow-hidden group">
     <?php
 
     if (!empty($featured_image)) {

@@ -1,3 +1,7 @@
 .dynahub-block-hero ul {
     @apply !list-none !p-0 !m-0;
 }
+
+.hero-single-post .card-overlay {
+    @apply aspect-[1290/530];
+}

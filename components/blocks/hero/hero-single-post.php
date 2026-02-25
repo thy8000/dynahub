@@ -12,11 +12,11 @@ if (empty($post)) {
 
 ?>
 
-<ul>
+<ul class="hero-single-post">
     <li>
         <?php
 
-        get_template_part('components/cards/overlay-card', null, [
+        get_template_part('components/cards/card-overlay', null, [
             'post' => $post,
         ]);
 
