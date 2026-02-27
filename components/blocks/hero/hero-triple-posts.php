@@ -12,7 +12,7 @@ if (empty($posts)) {
 
 ?>
 
-<ul class="hero-triple-posts grid grid-cols-1 md:grid-cols-3 gap-8">
+<ul class="hero-triple-posts grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
     <?php
 
     foreach ($posts as $post) {

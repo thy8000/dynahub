@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "settings": {
+    "layout": {
+      "contentSize": "90%"
+    },
+    "spacing": {
+      "blockGap": "40px"
+    }
+  }
+}

@@ -31,7 +31,7 @@ $link_classes = $args['link_classes'] ?? '';
 
 ?>
 
-<a href="<?php echo esc_url($post_url); ?>" class="card-overlay hero-block relative block w-full overflow-hidden group">
+<a href="<?php echo esc_url($post_url); ?>" class="card-overlay hero-block relative block w-full overflow-hidden group !no-underline">
     <?php
 
     if (!empty($featured_image)) {
@@ -56,7 +56,7 @@ $link_classes = $args['link_classes'] ?? '';
 
             ?>
                 <div>
-                    <span class="inline-block px-4 py-2 bg-primary rounded text-white text-sm font-semibold uppercase font-secondary">
+                    <span class="inline-block px-4 py-2 bg-primary rounded text-white text-sm font-semibold uppercase !font-secondary">
                         <?php echo esc_html($category_name); ?>
                     </span>
                 </div>
@@ -65,9 +65,9 @@ $link_classes = $args['link_classes'] ?? '';
             }
 
             ?>
-            <h1 class="!text-xl lg:!text-4xl !font-bold !text-white group-hover:!text-primary transition-colors">
+            <h2 class="!text-xl lg:!text-3xl !font-bold !text-white group-hover:!text-primary transition-colors !font-primary">
                 <?php echo esc_html($post_title); ?>
-            </h1>
+            </h2>
 
             <div class="flex flex-wrap justify-center items-center gap-6 text-custom-neutral-100 text-sm md:text-base font-secondary">
                 <div class="flex items-center gap-2">

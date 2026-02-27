@@ -2,18 +2,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #F4796C;
+  --color-primary: #f4796c;
 
   --color-blue-500: #183354;
-  --color-blue-600: #12253E;
+  --color-blue-600: #12253e;
 
-  --color-neutral-500: #8199B7;
-  --color-custom-neutral-100: #BACCE1;
+  --color-neutral-500: #8199b7;
+  --color-custom-neutral-100: #bacce1;
 
-
-  --font-primary: 'Manrope', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
-  --font-logo: 'Playfair Display', serif;
+  --font-primary: "Manrope", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+  --font-logo: "Playfair Display", serif;
 
   --spacing-section: 4rem;
   --spacing-container: 1.5rem;
@@ -31,7 +30,7 @@
 
   body {
     @apply antialiased;
-    font-family: var(--font-primary);
+    font-family: var(--font-primary) !important;
   }
 
   .container {

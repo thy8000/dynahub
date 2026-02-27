@@ -30,7 +30,7 @@ $posts_count = count($hero_posts);
             'posts' => $hero_posts,
         ]);
     } else {
-        get_template_part('components/blocks/hero/hero-multiple-posts', null, [
+        get_template_part('components/blocks/hero/hero-triple-posts', null, [
             'posts' => $hero_posts,
         ]);
     }
