@@ -22,15 +22,15 @@ $posts_count = count($hero_posts);
     <?php
 
     if ($posts_count === 1) {
-        get_template_part('components/blocks/hero/hero-single-post', null, [
+        get_template_part('components/blocks/hero/components/hero-single-post', null, [
             'post' => $hero_posts[0] ?? null,
         ]);
     } else if ($posts_count === 2) {
-        get_template_part('components/blocks/hero/hero-double-posts', null, [
+        get_template_part('components/blocks/hero/components/hero-double-posts', null, [
             'posts' => $hero_posts,
         ]);
     } else {
-        get_template_part('components/blocks/hero/hero-triple-posts', null, [
+        get_template_part('components/blocks/hero/components/hero-triple-posts', null, [
             'posts' => $hero_posts,
         ]);
     }
