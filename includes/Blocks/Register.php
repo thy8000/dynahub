@@ -11,7 +11,9 @@ class Register
     public function __construct()
     {
         add_filter('block_categories_all', [$this, 'register_dynahub_block_category'], 10, 1);
+
         add_action('init', [$this, 'register_hero_block']);
+        add_action('init', [$this, 'register_banner_block']);
     }
 
     public function register_dynahub_block_category($categories)
@@ -31,7 +33,7 @@ class Register
                 'name'            => 'dynahub-hero',
                 'title'           => __('Hero', 'dynahub'),
                 'description'     => __('Exibe um hero section com um post selecionado. (Mostra informações do post)', 'dynahub'),
-                'render_template' => get_template_directory() . '/components/blocks/hero.php',
+                'render_template' => get_template_directory() . '/components/blocks/hero/_index.php',
                 'category'        => 'dynahub',
                 'icon'            => 'format-image',
                 'keywords'        => ['hero', 'image', 'post'],
@@ -83,6 +85,125 @@ class Register
                 'active'                => true,
                 'description'           => '',
             ]);
+        }
+    }
+
+    public function register_banner_block()
+    {
+        if (function_exists('acf_register_block_type')) {
+            acf_register_block_type([
+                'name'            => 'dynahub-block-banner',
+                'title'           => __('Banner', 'dynahub'),
+                'description'     => __('Exibe um banner personalizado com imagem e Link.'),
+                'render_template' => get_template_directory() . '/components/blocks/banner/_index.php',
+                'category'        => 'dynahub',
+                'icon'            => 'format-image',
+                'keywords'        => ['banner', 'image'],
+            ]);
+        }
+
+        if (function_exists('acf_add_local_field_group')) {
+            acf_add_local_field_group(array(
+                'key' => 'group_69a57b1ce147d',
+                'title' => 'Opções do Bloco de Banner',
+                'fields' => array(
+                    array(
+                        'key' => 'field_69a57b1ea43d6',
+                        'label' => 'Imagem',
+                        'name' => 'block_banner_image',
+                        'aria-label' => '',
+                        'type' => 'image',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'return_format' => 'id',
+                        'library' => 'all',
+                        'min_width' => '',
+                        'min_height' => '',
+                        'min_size' => '',
+                        'max_width' => '',
+                        'max_height' => '',
+                        'max_size' => '',
+                        'mime_types' => '',
+                        'allow_in_bindings' => 0,
+                        'preview_size' => 'medium',
+                    ),
+                    array(
+                        'key' => 'field_69a57bafa43d7',
+                        'label' => 'URL',
+                        'name' => 'block_banner_url',
+                        'aria-label' => '',
+                        'type' => 'url',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'allow_in_bindings' => 0,
+                        'placeholder' => '',
+                    ),
+                    array(
+                        'key' => 'field_69a57bcfa43d8',
+                        'label' => 'Tamanho do Banner',
+                        'name' => 'block_banner_size',
+                        'aria-label' => '',
+                        'type' => 'select',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array(
+                            '1290x230' => '1290x230',
+                            '1290x205' => '1290x205',
+                            '984x120' => '984x120',
+                            '956x120' => '956x120',
+                            '890x120' => '890x120',
+                        ),
+                        'default_value' => false,
+                        'return_format' => 'value',
+                        'multiple' => 0,
+                        'allow_null' => 0,
+                        'allow_in_bindings' => 0,
+                        'ui' => 0,
+                        'ajax' => 0,
+                        'placeholder' => '',
+                        'create_options' => 0,
+                        'save_options' => 0,
+                    ),
+                ),
+                'location' => array(
+                    array(
+                        array(
+                            'param' => 'block',
+                            'operator' => '==',
+                            'value' => 'acf/dynahub-block-banner',
+                        ),
+                    ),
+                ),
+                'menu_order' => 0,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+                'active' => true,
+                'description' => '',
+                'show_in_rest' => 0,
+                'display_title' => '',
+            ));
         }
     }
 }
