@@ -27,3 +27,6 @@ Thumbs.db
 # WordPress
 wp-config.php
 .htaccess
+
+# Anotações
+blocos.md
