@@ -16,7 +16,7 @@ if (empty($post)) {
     <li>
         <?php
 
-        get_template_part('components/cards/card-overlay', null, [
+        get_template_part('components/card', 'overlay', [
             'post' => $post,
         ]);
 

@@ -12,7 +12,7 @@ if (empty($posts)) {
 
 ?>
 
-<ul class="hero-triple-posts grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
+<ul class="hero-double-posts grid grid-cols-1 md:grid-cols-2">
     <?php
 
     foreach ($posts as $post) {
@@ -24,7 +24,7 @@ if (empty($posts)) {
         <li>
             <?php
 
-            get_template_part('components/cards/card-overlay', null, [
+            get_template_part('components/card', 'overlay', [
                 'post' => $post,
             ]);
 
