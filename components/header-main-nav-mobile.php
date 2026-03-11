@@ -38,9 +38,9 @@ if (!defined('ABSPATH')) {
 
         <?php
 
-        get_template_part('components/search-form');
+        get_template_part('components/header', 'search-form');
 
-        get_template_part('components/social-links');
+        get_template_part('components/header', 'social-links');
 
         ?>
     </div>

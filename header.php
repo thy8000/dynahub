@@ -23,4 +23,4 @@ if (!defined('ABSPATH')) {
       <?php esc_html_e('Pular para o conteúdo', 'dynahub'); ?>
     </a>
 
-    <?php get_template_part('components/header/_index'); ?>
+    <?php get_template_part('components/header'); ?>

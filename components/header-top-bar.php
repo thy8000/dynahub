@@ -10,13 +10,13 @@ if (!defined('ABSPATH')) {
     <div class="container">
         <div class="flex items-center justify-between py-8">
             <div class="flex items-center">
-                <?php get_template_part('components/social-links'); ?>
+                <?php get_template_part('components/header', 'social-links'); ?>
             </div>
             <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center space-x-2">
                 <h1 class="logo">DynaHub</h1>
             </a>
             <div class="max-w-3xs">
-                <?php get_template_part('components/search-form'); ?>
+                <?php get_template_part('components/header', 'search-form'); ?>
             </div>
         </div>
     </div>
