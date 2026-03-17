@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 $post_grid_columns = $args['post_grid_columns'] ?? 2;
 $posts_list_args   = $args['posts_list_args'];
 
-$posts = get_posts($posts_list_args);
+$posts_list = get_posts($posts_list_args);
 
 if (empty($posts)) {
     return;
@@ -26,5 +26,17 @@ $list_output .= $grid_columns_classes[$post_grid_columns ?? 2];
 ?>
 
 <ul class="grid grid-cols-1 gap-8 <?php echo esc_attr($list_output); ?>">
+    <?php
 
+    foreach ($posts_list as $post_ID) {
+        if (empty($post_ID)) {
+            continue;
+        }
+
+        get_template_part('components/card', 'default', [
+            'post_ID' => $post_ID,
+        ]);
+    }
+
+    ?>
 </ul>

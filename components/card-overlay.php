@@ -15,9 +15,9 @@ if (!$post) {
 $Post = new Post($post);
 
 $post_id     = $Post->get_id();
-$post_title  = $Post->get_title();
-$post_url    = $Post->get_permalink();
-$post_date   = $Post->get_date('d F, Y');
+$post_title  = $Post->get_the_title();
+$post_url    = $Post->get_the_permalink();
+$post_date   = $Post->get_the_date('d F, Y');
 $author_name = $Post->get_author_name('display_name');
 
 $featured_image     = $Post->get_featured_image_url('full');

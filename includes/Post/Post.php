@@ -32,7 +32,7 @@ class Post
         return $this->post->ID;
     }
 
-    public function get_title()
+    public function get_the_title()
     {
         return $this->post->post_title;
     }
@@ -46,12 +46,12 @@ class Post
         return $this->post->post_content;
     }
 
-    public function get_permalink()
+    public function get_the_permalink()
     {
         return get_permalink($this->post->ID);
     }
 
-    public function get_date($format = 'd F, Y')
+    public function get_the_date($format = 'd F, Y')
     {
         return get_the_date($format, $this->post->ID);
     }
@@ -76,6 +76,11 @@ class Post
     public function get_featured_image_alt()
     {
         return get_the_post_thumbnail_caption($this->post->ID);
+    }
+
+    public function get_the_thumbnail($thumbnail_size = 'large', $attrs = [])
+    {
+        return get_the_post_thumbnail($this->post->ID, $thumbnail_size, $attrs);
     }
 
     public function get_categories()

@@ -8,11 +8,13 @@ $post_grid_layout_style = get_field('block_dynamic_post_grid_layout_style');
 $post_grid_columns      = get_field('block_dynamic_post_grid_columns') ?? 2;
 $post_grid_categories   = get_field('block_dynamic_post_grid_categories');
 $post_grid_ordenation   = get_field('block_dynamic_post_grid_ordenation');
+$post_grid_post_number = get_field('block_dynamic_post_grid_post_number') ?? 4;
 $post_grid_ordenation = 'recent';
 
 $posts_list_args = [
-    'numberposts' => $post_grid_columns,
+    'numberposts' => $post_grid_post_number,
     'post_type'   => 'post',
+    'fields'      => 'ids',
 ];
 
 if (!empty($post_categories)) {
