@@ -85,18 +85,32 @@ class Post
 
     public function get_categories()
     {
+        if (empty($this->post) || empty($this->post->ID)) {
+            return [];
+        }
+
         return get_the_category($this->post->ID);
     }
 
     public function get_first_category_name()
     {
-        $categories = $this->get_categories();
-
-        if (empty($categories)) {
-            return;
+        if (empty($this->post) || empty($this->post->ID)) {
+            return null;
         }
 
-        return $categories[0]->name;
+        $categories = get_the_category($this->post->ID);
+
+        if (empty($categories) || !is_array($categories)) {
+            return null;
+        }
+
+        $first_category = $categories[0] ?? null;
+
+        if (!$first_category instanceof \WP_Term) {
+            return null;
+        }
+
+        return $first_category->name;
     }
 
     public function get_reading_time()
