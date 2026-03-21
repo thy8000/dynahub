@@ -33,5 +33,3 @@ if ($post_grid_layout_style === 'default') {
         'posts_list_args'   => $posts_list_args
     ]);
 }
-
-echo 'Grid';
