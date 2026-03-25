@@ -4,12 +4,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$post_grid_type    = $args['post_grid_type'] ?? 'default';
 $post_grid_columns = $args['post_grid_columns'] ?? 2;
 $posts_list_args   = $args['posts_list_args'];
 
 $posts_list = get_posts($posts_list_args);
 
-if (empty($posts)) {
+if (empty($posts_list)) {
     return;
 }
 
@@ -25,7 +26,7 @@ $list_output .= $grid_columns_classes[$post_grid_columns ?? 2];
 
 ?>
 
-<ul class="grid grid-cols-1 gap-8 <?php echo esc_attr($list_output); ?>">
+<ul class="grid grid-cols-1 gap-8  <?php echo esc_attr($list_output); ?>">
     <?php
 
     foreach ($posts_list as $post_ID) {
@@ -34,7 +35,8 @@ $list_output .= $grid_columns_classes[$post_grid_columns ?? 2];
         }
 
         get_template_part('components/card', 'default', [
-            'post_ID' => $post_ID,
+            'post_ID'   => $post_ID,
+            'card_size' => $post_grid_type === 'default' ? 'medium' : 'large',
         ]);
     }
 

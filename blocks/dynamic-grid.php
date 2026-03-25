@@ -27,8 +27,9 @@ if ($post_grid_ordenation === 'recent') {
     $posts_list_args['order']   = 'DESC';
 }
 
-if ($post_grid_layout_style === 'default') {
+if ($post_grid_layout_style === 'default' || $post_grid_layout_style === 'list') {
     get_template_part('components/grid', 'default', [
+        'post_grid_type'    => $post_grid_layout_style,
         'post_grid_columns' => $post_grid_columns,
         'posts_list_args'   => $posts_list_args
     ]);
