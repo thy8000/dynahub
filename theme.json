@@ -28,6 +28,24 @@
         },
         "border": {
             "radius": true
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "'Inter', sans-serif",
+                    "name": "Inter",
+                    "slug": "inter"
+                }
+            ],
+            "fontFaces": [
+                {
+                    "fontFamily": "Inter",
+                    "fontWeight": "400",
+                    "fontStyle": "normal",
+                    "fontStretch": "normal",
+                    "src": ["file:./assets/fonts/Inter-VariableFont_opsz,wght.ttf"]
+                }
+            ]
         }
     },
     "templateParts": [
