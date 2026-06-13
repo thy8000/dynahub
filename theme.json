@@ -1,58 +1,11 @@
 {
     "version": 2,
     "settings": {
-        "spacing": {
-            "margin": true,
-            "padding": true,
-            "blockGap": true
-        },
-        "color": {
-            "palette": [
-                {
-                    "slug": "blue-1",
-                    "color": "#12253E",
-                    "name": "Blue 1"
-                },
-                {
-                    "slug": "blue-2",
-                    "color": "#8199B7",
-                    "name": "Blue 2"
-                },
-                {
-                    "slug": "blue-3",
-                    "color": "#3A506B",
-                    "name": "Blue 3"
-                }
-
-            ]
-        },
-        "border": {
-            "radius": true
-        },
-        "typography": {
-            "fontFamilies": [
-                {
-                    "fontFamily": "'Inter', sans-serif",
-                    "name": "Inter",
-                    "slug": "inter"
-                }
-            ],
-            "fontFaces": [
-                {
-                    "fontFamily": "Inter",
-                    "fontWeight": "400",
-                    "fontStyle": "normal",
-                    "fontStretch": "normal",
-                    "src": ["file:./assets/fonts/Inter-VariableFont_opsz,wght.ttf"]
-                }
-            ]
+        "appearanceTools": true,
+        "layout": {
+            "contentSize": "800px",
+            "wideSize": "1200px"
         }
     },
-    "templateParts": [
-        {
-            "area": "header",
-            "name": "header",
-            "title": "Header"
-        }
-    ]
+    "styles": {}
 }
