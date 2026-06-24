@@ -4,7 +4,8 @@ class OptionPage {
 
 	public function __construct() {
 		add_action( 'acf/init', array( $this, 'add_options_page' ), 5 );
-		add_action( 'acf/init', array( $this, 'add_fields' ), 10 );
+		add_action( 'acf/init', array( $this, 'add_general_options_fields' ), 10 );
+		add_action( 'acf/init', array( $this, 'add_home_options_page_fields' ), 10 );
 	}
 
 	public function add_options_page() {
@@ -32,9 +33,19 @@ class OptionPage {
 				'show_in_graphql' => true,
 			)
 		);
+
+		acf_add_options_sub_page(
+			array(
+				'page_title'  => 'Opções da Home',
+				'menu_title'  => 'Opções da Home',
+				'parent_slug' => 'theme-options',
+				'menu_slug'   => 'home-options',
+				'show_in_graphql' => true,
+			)
+		);
 	}
 
-	public function add_fields() {
+	public function add_general_options_fields() {
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
@@ -112,6 +123,69 @@ class OptionPage {
 							'param'    => 'options_page',
 							'operator' => '==',
 							'value'    => 'opcoes-da-home',
+						),
+					),
+				),
+			)
+		);
+	}
+
+	public function add_home_options_page_fields() {
+		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+			return;
+		}
+
+		acf_add_local_field_group(
+			array(
+				'key'      => 'group_home_page_options',
+				'title'    => 'Opções da Home',
+				'show_in_graphql' => true,
+				'graphql_field_name' => 'homeOptions',
+				'fields'   => array(
+					array(
+						'key'       => 'field_home_flexible_content',
+						'label'     => 'Conteúdo da Home',
+						'name'      => 'home_flexible_content',
+						'type'      => 'flexible_content',
+						'layouts'   => array(
+							array(
+								'key'        => 'layout_posts_section',
+								'name'       => 'posts_section',
+								'label'      => 'Seção de Posts',
+								'display'    => 'block',
+								'sub_fields' => array(
+									array(
+										'key'       => 'field_posts_repeater',
+										'label'     => 'Posts',
+										'name'      => 'posts_repeater',
+										'type'      => 'repeater',
+										'max'       => 2,
+										'layout'    => 'table',
+										'button_label' => 'Adicionar Post',
+										'sub_fields' => array(
+											array(
+												'key'       => 'field_selected_post',
+												'label'     => 'Selecionar Post',
+												'name'      => 'selected_post',
+												'type'      => 'relationship',
+												'post_type' => array( 'post' ),
+												'filters'   => array( 'search' ),
+												'return_format' => 'object',
+												'max'       => 1,
+											),
+										),
+									),
+								),
+							),
+						),
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param'    => 'options_page',
+							'operator' => '==',
+							'value'    => 'home-options',
 						),
 					),
 				),

@@ -27,3 +27,6 @@ yarn-error.log*
 # Descomente se aplicável:
 # *.min.css
 # *.min.js
+
+plugins/
+uploads/
