@@ -1,15 +1,18 @@
 <?php
 
-class OptionPage {
+class OptionPage
+{
 
-	public function __construct() {
-		add_action( 'acf/init', array( $this, 'add_options_page' ), 5 );
-		add_action( 'acf/init', array( $this, 'add_general_options_fields' ), 10 );
-		add_action( 'acf/init', array( $this, 'add_home_options_page_fields' ), 10 );
+	public function __construct()
+	{
+		add_action('acf/init', array($this, 'add_options_page'), 5);
+		add_action('acf/init', array($this, 'add_general_options_fields'), 10);
+		add_action('acf/init', array($this, 'add_home_options_page_fields'), 10);
 	}
 
-	public function add_options_page() {
-		if ( ! function_exists( 'acf_add_options_page' ) ) {
+	public function add_options_page()
+	{
+		if (! function_exists('acf_add_options_page')) {
 			return;
 		}
 
@@ -45,8 +48,9 @@ class OptionPage {
 		);
 	}
 
-	public function add_general_options_fields() {
-		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+	public function add_general_options_fields()
+	{
+		if (! function_exists('acf_add_local_field_group')) {
 			return;
 		}
 
@@ -130,8 +134,9 @@ class OptionPage {
 		);
 	}
 
-	public function add_home_options_page_fields() {
-		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+	public function add_home_options_page_fields()
+	{
+		if (! function_exists('acf_add_local_field_group')) {
 			return;
 		}
 
@@ -151,29 +156,18 @@ class OptionPage {
 							array(
 								'key'        => 'layout_posts_section',
 								'name'       => 'posts_section',
-								'label'      => 'Seção de Posts',
+								'label'      => 'Seção de Posts (Hero)',
 								'display'    => 'block',
 								'sub_fields' => array(
 									array(
-										'key'       => 'field_posts_repeater',
-										'label'     => 'Posts',
-										'name'      => 'posts_repeater',
-										'type'      => 'repeater',
-										'max'       => 2,
-										'layout'    => 'table',
-										'button_label' => 'Adicionar Post',
-										'sub_fields' => array(
-											array(
-												'key'       => 'field_selected_post',
-												'label'     => 'Selecionar Post',
-												'name'      => 'selected_post',
-												'type'      => 'relationship',
-												'post_type' => array( 'post' ),
-												'filters'   => array( 'search' ),
-												'return_format' => 'object',
-												'max'       => 1,
-											),
-										),
+										'key'           => 'field_posts_repeater',
+										'label'         => 'Posts',
+										'name'          => 'posts_repeater',
+										'type'          => 'relationship',
+										'post_type'     => array('post'),
+										'filters'       => array('search'),
+										'return_format' => 'object',
+										'max'           => 2,
 									),
 								),
 							),
@@ -183,6 +177,12 @@ class OptionPage {
 								'label'      => 'Seção de Categorias',
 								'display'    => 'block',
 								'sub_fields' => array(
+									array(
+										'key'   => 'field_category_section_title',
+										'label' => 'Título da Seção',
+										'name'  => 'section_title',
+										'type'  => 'text',
+									),
 									array(
 										'key'          => 'field_categories_repeater',
 										'label'        => 'Categorias',
@@ -217,25 +217,26 @@ class OptionPage {
 								'display'    => 'block',
 								'sub_fields' => array(
 									array(
-										'key'          => 'field_sidebar_posts_repeater',
-										'label'        => 'Posts em Destaque',
-										'name'         => 'sidebar_posts_repeater',
-										'type'         => 'repeater',
-										'max'          => 4,
-										'layout'       => 'block',
-										'button_label' => 'Adicionar Post',
-										'sub_fields'   => array(
-											array(
-												'key'           => 'field_sidebar_selected_post',
-												'label'         => 'Selecionar Post',
-												'name'          => 'sidebar_selected_post',
-												'type'          => 'relationship',
-												'post_type'     => array( 'post' ),
-												'filters'       => array( 'search' ),
-												'return_format' => 'object',
-												'max'           => 1,
-											),
-										),
+										'key'   => 'field_sidebar_section_title',
+										'label' => 'Título da Seção',
+										'name'  => 'section_title',
+										'type'  => 'text',
+									),
+									array(
+										'key'   => 'field_sidebar_section_sidebar_title',
+										'label' => 'Título da Sidebar',
+										'name'  => 'section_title',
+										'type'  => 'text',
+									),
+									array(
+										'key'           => 'field_sidebar_posts_repeater',
+										'label'         => 'Posts em Destaque',
+										'name'          => 'sidebar_posts_repeater',
+										'type'          => 'relationship',
+										'post_type'     => array('post'),
+										'filters'       => array('search'),
+										'return_format' => 'object',
+										'max'           => 5,
 									),
 									array(
 										'key'           => 'field_sidebar_type_select',
@@ -266,6 +267,37 @@ class OptionPage {
 										'multiple'      => 0,
 										'ui'            => 0,
 										'return_format' => 'value',
+									),
+								),
+							),
+							array(
+								'key'        => 'layout_videos_section',
+								'name'       => 'videos_section',
+								'label'      => 'Seção de Vídeos',
+								'display'    => 'block',
+								'sub_fields' => array(
+									array(
+										'key'   => 'field_section_title',
+										'label' => 'Título da Seção',
+										'name'  => 'section_title',
+										'type'  => 'text',
+									),
+									array(
+										'key'           => 'field_section_archive_link',
+										'label'         => 'Link do Archive',
+										'name'          => 'section_archive_link',
+										'type'          => 'link',
+										'return_format' => 'array',
+									),
+									array(
+										'key'           => 'field_section_posts',
+										'label'         => 'Selecionar Posts',
+										'name'          => 'section_posts',
+										'type'          => 'relationship',
+										'post_type'     => array('post'),
+										'filters'       => array('search'),
+										'return_format' => 'object',
+										'max'           => 4,
 									),
 								),
 							),
